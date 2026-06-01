@@ -1,0 +1,1902 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "a0cace11-1a3c-49c6-add1-88055139c981",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def todo_list():\n",
+    "    tasks = []\n",
+    "    while True:\n",
+    "        print(\"====================\")\n",
+    "        print(\"    TO-DO LIST      \")\n",
+    "        print(\"====================\")\n",
+    "        print(\"1. View Tasks\")\n",
+    "        print(\"2. Add Task\")\n",
+    "        print(\"3. Update Task\")\n",
+    "        print(\"4. Mark Task as Done\")\n",
+    "        print(\"5. Delete Task\")\n",
+    "        print(\"6. Exit\")\n",
+    "        \n",
+    "        choice = input(\"Enter your choice: \")\n",
+    "        \n",
+    "        if choice == \"1\":\n",
+    "            print(\"-----------------------\")\n",
+    "            print(\"    YOUR TASK LIST     \")\n",
+    "            print(\"-----------------------\")\n",
+    "            if not tasks:\n",
+    "                print(\"No tasks found!\")\n",
+    "            else:\n",
+    "                print(\"\\nYour Tasks:\\n\")\n",
+    "                for i, task in enumerate(tasks, 1):\n",
+    "                    status = \"Done\" if task[\"done\"] else \"Pending\"\n",
+    "                    print(f\"{i}. {task['name']:<25} [{status}]\\n\")\n",
+    "        \n",
+    "        elif choice == \"2\":\n",
+    "            print(\"-----------------------\")\n",
+    "            print(\"     ADD NEW TASK      \")\n",
+    "            print(\"-----------------------\")\n",
+    "            task_name = input(\"Enter task: \")\n",
+    "            tasks.append({\"name\": task_name, \"done\": False})\n",
+    "            print(f\"Task '{task_name}' added Successfully!\")\n",
+    "    \n",
+    "        elif choice == \"3\":\n",
+    "            print(\"-----------------------------\")\n",
+    "            print(\"    UPDATE EXISTING TASK     \")\n",
+    "            print(\"-----------------------------\")\n",
+    "            if not tasks:\n",
+    "                print(\"No tasks to update!\")\n",
+    "            else:\n",
+    "                for i, task in enumerate(tasks, 1):\n",
+    "                    print(f\"{i}. {task['name']}\")\n",
+    "                num = int(input(\"Enter task number to update: \")) - 1\n",
+    "                new_name = input(\"Enter new task name: \")\n",
+    "                tasks[num][\"name\"] = new_name\n",
+    "                print(\"Task updated Successfully!\")\n",
+    "        \n",
+    "        elif choice == \"4\":\n",
+    "            print(\"------------------------------\")\n",
+    "            print(\"   MARK TASK AS COMPLETED   \")\n",
+    "            print(\"------------------------------\")\n",
+    "            if not tasks:\n",
+    "                print(\"No tasks available!\")\n",
+    "            else:\n",
+    "                for i, task in enumerate(tasks, 1):\n",
+    "                    print(f\"{i}. {task['name']}\")\n",
+    "                num = int(input(\"Enter task number to mark as done: \")) - 1\n",
+    "                tasks[num][\"done\"] = True\n",
+    "                print(\"Task marked as done Successfully!\")\n",
+    "        \n",
+    "        elif choice == \"5\":\n",
+    "            print(\"--------------------\")\n",
+    "            print(\"    DELETE TASK     \")\n",
+    "            print(\"--------------------\")\n",
+    "            if not tasks:\n",
+    "                print(\"No tasks to delete!\")\n",
+    "            else:\n",
+    "                for i, task in enumerate(tasks, 1):\n",
+    "                    print(f\"{i}. {task['name']}\")\n",
+    "                num = int(input(\"Enter task number to delete: \")) - 1\n",
+    "                removed = tasks.pop(num)\n",
+    "                print(f\"Task '{removed['name']}' deleted Successfully!\")\n",
+    "        \n",
+    "        elif choice == \"6\":\n",
+    "            print(\"Thankyou for using TO-DO list!\")\n",
+    "            break\n",
+    "        \n",
+    "        else:\n",
+    "            print(\"Invalid choice! Try again.\")\n",
+    "\n",
+    "todo_list()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 51,
+   "id": "6f38658a-b4b6-4fa7-9da7-e50cced974bf",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "============================\n",
+      "     SIMPLE CALCULATOR      \n",
+      "============================\n",
+      "\n",
+      "   1. Perform Calculation   \n",
+      "   2. Exit                  \n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      " Please Select an Option (1-2):  1\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "-----------------------------\n",
+      "     PERFORM CALCULATION     \n",
+      "-----------------------------\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Enter first number:  15\n",
+      "Enter second number:  5\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Operations: + | - | * | /\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Enter operation:  +\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Result: 15.0 + 5.0 = 20.0\n",
+      "\n",
+      "   1. Perform Calculation   \n",
+      "   2. Exit                  \n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      " Please Select an Option (1-2):  1\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "-----------------------------\n",
+      "     PERFORM CALCULATION     \n",
+      "-----------------------------\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Enter first number:  -8\n",
+      "Enter second number:  12\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Operations: + | - | * | /\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Enter operation:  -\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Result: -8.0 - 12.0 = -20.0\n",
+      "\n",
+      "   1. Perform Calculation   \n",
+      "   2. Exit                  \n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      " Please Select an Option (1-2):  1\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "-----------------------------\n",
+      "     PERFORM CALCULATION     \n",
+      "-----------------------------\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Enter first number:  16\n",
+      "Enter second number:  4\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Operations: + | - | * | /\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Enter operation:  *\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Result: 16.0 * 4.0 = 64.0\n",
+      "\n",
+      "   1. Perform Calculation   \n",
+      "   2. Exit                  \n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      " Please Select an Option (1-2):  1\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "-----------------------------\n",
+      "     PERFORM CALCULATION     \n",
+      "-----------------------------\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Enter first number:  20\n",
+      "Enter second number:  5\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Operations: + | - | * | /\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Enter operation:  /\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Result: 20.0 / 5.0 = 4.0\n",
+      "\n",
+      "   1. Perform Calculation   \n",
+      "   2. Exit                  \n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      " Please Select an Option (1-2):  2\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Thankyou for using Calculator!\n"
+     ]
+    }
+   ],
+   "source": [
+    "def calculator():\n",
+    "    print(\"============================\")\n",
+    "    print(\"     SIMPLE CALCULATOR      \")\n",
+    "    print(\"============================\")\n",
+    "    \n",
+    "    while True:\n",
+    "        print(\"\\n   1. Perform Calculation   \")\n",
+    "        print(\"   2. Exit                  \")\n",
+    "        \n",
+    "        choice = input(\"\\n Please Select an Option (1-2): \")\n",
+    "        \n",
+    "        if choice == \"1\":\n",
+    "            print(\"-----------------------------\")\n",
+    "            print(\"     PERFORM CALCULATION     \")\n",
+    "            print(\"-----------------------------\")\n",
+    "            \n",
+    "            try:\n",
+    "                num1 = float(input(\"\\nEnter first number: \"))\n",
+    "                num2 = float(input(\"Enter second number: \"))\n",
+    "                \n",
+    "                print(\"Operations: + | - | * | /\")\n",
+    "                operation = input(\"\\nEnter operation: \")\n",
+    "                \n",
+    "                if operation == \"+\":\n",
+    "                    result = num1 + num2\n",
+    "                elif operation == \"-\":\n",
+    "                    result = num1 - num2\n",
+    "                elif operation == \"*\":\n",
+    "                    result = num1 * num2\n",
+    "                elif operation == \"/\":\n",
+    "                    if num2 == 0:\n",
+    "                        print(\"Error: Cannot divide by zero!\")\n",
+    "                    else:\n",
+    "                        result = num1 / num2\n",
+    "                        print(f\"\\nResult: {num1} {operation} {num2} = {result}\")\n",
+    "                else:\n",
+    "                    print(\"Invalid operation!\")\n",
+    "                \n",
+    "                if operation in [\"+\", \"-\", \"*\"]:\n",
+    "                    print(f\"\\nResult: {num1} {operation} {num2} = {result}\")\n",
+    "            \n",
+    "            except ValueError:\n",
+    "                print(\"Invalid input! Please enter numbers only.\")\n",
+    "        \n",
+    "        elif choice == \"2\":\n",
+    "            print(\"\\nThankyou for using Calculator!\")\n",
+    "            break\n",
+    "        \n",
+    "        else:\n",
+    "            print(\"Invalid Choice! Please Enter 1 or 2.\")\n",
+    "\n",
+    "calculator()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 55,
+   "id": "091aa4b9-a3e0-4cc5-bf06-53f872ffd7da",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "\n",
+      "=======================================\n",
+      "        PASSWORD GENERATOR APP         \n",
+      "=======================================\n",
+      "  1. Generate New Password             \n",
+      "  2. Exit                              \n",
+      "=======================================\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "  Please Select an Option (1-2) :  1\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "------------------------------------------\n",
+      "           GENERATE NEW PASSWORD          \n",
+      "------------------------------------------\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "  Enter Desired Password Length :  8\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "------------------------------------------\n",
+      "         SELECT PASSWORD COMPLEXITY       \n",
+      "------------------------------------------\n",
+      "  1. Basic   - Letters Only               \n",
+      "  2. Medium  - Letters + Numbers          \n",
+      "  3. Strong  - Letters + Numbers + Symbols\n",
+      "------------------------------------------\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "  Please Select Complexity (1/2/3) :  1\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "------------------------------------------\n",
+      "           PASSWORD GENERATED             \n",
+      "------------------------------------------\n",
+      "  Password Length     : 8\n",
+      "  Complexity Level    : Basic\n",
+      "  Generated Password  : JgYpFXsu\n",
+      "------------------------------------------\n",
+      "\n",
+      "\n",
+      "=======================================\n",
+      "        PASSWORD GENERATOR APP         \n",
+      "=======================================\n",
+      "  1. Generate New Password             \n",
+      "  2. Exit                              \n",
+      "=======================================\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "  Please Select an Option (1-2) :  1\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "------------------------------------------\n",
+      "           GENERATE NEW PASSWORD          \n",
+      "------------------------------------------\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "  Enter Desired Password Length :  12\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "------------------------------------------\n",
+      "         SELECT PASSWORD COMPLEXITY       \n",
+      "------------------------------------------\n",
+      "  1. Basic   - Letters Only               \n",
+      "  2. Medium  - Letters + Numbers          \n",
+      "  3. Strong  - Letters + Numbers + Symbols\n",
+      "------------------------------------------\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "  Please Select Complexity (1/2/3) :  2\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "------------------------------------------\n",
+      "           PASSWORD GENERATED             \n",
+      "------------------------------------------\n",
+      "  Password Length     : 12\n",
+      "  Complexity Level    : Medium\n",
+      "  Generated Password  : p2HrNX2UBTte\n",
+      "------------------------------------------\n",
+      "\n",
+      "\n",
+      "=======================================\n",
+      "        PASSWORD GENERATOR APP         \n",
+      "=======================================\n",
+      "  1. Generate New Password             \n",
+      "  2. Exit                              \n",
+      "=======================================\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "  Please Select an Option (1-2) :  1\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "------------------------------------------\n",
+      "           GENERATE NEW PASSWORD          \n",
+      "------------------------------------------\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "  Enter Desired Password Length :  9\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "------------------------------------------\n",
+      "         SELECT PASSWORD COMPLEXITY       \n",
+      "------------------------------------------\n",
+      "  1. Basic   - Letters Only               \n",
+      "  2. Medium  - Letters + Numbers          \n",
+      "  3. Strong  - Letters + Numbers + Symbols\n",
+      "------------------------------------------\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "  Please Select Complexity (1/2/3) :  3\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "------------------------------------------\n",
+      "           PASSWORD GENERATED             \n",
+      "------------------------------------------\n",
+      "  Password Length     : 9\n",
+      "  Complexity Level    : Strong\n",
+      "  Generated Password  : TXt5r3G3M\n",
+      "------------------------------------------\n",
+      "\n",
+      "\n",
+      "=======================================\n",
+      "        PASSWORD GENERATOR APP         \n",
+      "=======================================\n",
+      "  1. Generate New Password             \n",
+      "  2. Exit                              \n",
+      "=======================================\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "  Please Select an Option (1-2) :  1\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "------------------------------------------\n",
+      "           GENERATE NEW PASSWORD          \n",
+      "------------------------------------------\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "  Enter Desired Password Length :  3\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "  Password length must be at least 4 characters.\n",
+      "\n",
+      "\n",
+      "=======================================\n",
+      "        PASSWORD GENERATOR APP         \n",
+      "=======================================\n",
+      "  1. Generate New Password             \n",
+      "  2. Exit                              \n",
+      "=======================================\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "  Please Select an Option (1-2) :  2\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "==========================================\n",
+      "  Thank you for using Password Generator. \n",
+      "==========================================\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "import random  \n",
+    "import string \n",
+    "def display_menu():\n",
+    "    print(\"\\n\")\n",
+    "    print(\"=======================================\")\n",
+    "    print(\"        PASSWORD GENERATOR APP         \")\n",
+    "    print(\"=======================================\")\n",
+    "    print(\"  1. Generate New Password             \")\n",
+    "    print(\"  2. Exit                              \")\n",
+    "    print(\"=======================================\")\n",
+    "\n",
+    "def select_complexity():\n",
+    "    print(\"\\n------------------------------------------\")\n",
+    "    print(\"         SELECT PASSWORD COMPLEXITY       \")\n",
+    "    print(\"------------------------------------------\")\n",
+    "    print(\"  1. Basic   - Letters Only               \")\n",
+    "    print(\"  2. Medium  - Letters + Numbers          \")\n",
+    "    print(\"  3. Strong  - Letters + Numbers + Symbols\")\n",
+    "    print(\"------------------------------------------\")\n",
+    "    \n",
+    "    complexity = input(\"  Please Select Complexity (1/2/3) : \") \n",
+    "    if complexity == \"1\": \n",
+    "        characters = string.ascii_letters\n",
+    "        level = \"Basic\"\n",
+    "    elif complexity == \"2\":  \n",
+    "        characters = string.ascii_letters + string.digits\n",
+    "        level = \"Medium\"\n",
+    "    elif complexity == \"3\": \n",
+    "        characters = string.ascii_letters + string.digits + string.punctuation\n",
+    "        level = \"Strong\"\n",
+    "    else:\n",
+    "        print(\"\\n  Invalid selection. Please choose 1, 2, or 3.\")\n",
+    "        return None, None \n",
+    "    \n",
+    "    return characters, level  \n",
+    "def generate_password():\n",
+    "    print(\"\\n------------------------------------------\")\n",
+    "    print(\"           GENERATE NEW PASSWORD          \")\n",
+    "    print(\"------------------------------------------\")\n",
+    "    try:\n",
+    "        length = int(input(\"  Enter Desired Password Length : \")) \n",
+    "        \n",
+    "        if length < 4:  \n",
+    "            print(\"\\n  Password length must be at least 4 characters.\")\n",
+    "            return\n",
+    "        \n",
+    "        characters, level = select_complexity()  \n",
+    "        \n",
+    "        if characters is None:  \n",
+    "            return\n",
+    "        password = ''.join(random.choice(characters) for _ in range(length))\n",
+    "        print(\"\\n------------------------------------------\")\n",
+    "        print(\"           PASSWORD GENERATED             \")\n",
+    "        print(\"------------------------------------------\")\n",
+    "        print(f\"  Password Length     : {length}\")\n",
+    "        print(f\"  Complexity Level    : {level}\")\n",
+    "        print(f\"  Generated Password  : {password}\")\n",
+    "        print(\"------------------------------------------\")\n",
+    "    \n",
+    "    except ValueError: \n",
+    "        print(\"\\n  Invalid input. Please enter a valid number for length.\")\n",
+    "\n",
+    "def password_generator():\n",
+    "    while True: \n",
+    "        display_menu() \n",
+    "        choice = input(\"  Please Select an Option (1-2) : \") \n",
+    "        \n",
+    "        if choice == \"1\":  \n",
+    "            generate_password()\n",
+    "        elif choice == \"2\":   \n",
+    "            print(\"\\n==========================================\")\n",
+    "            print(\"  Thank you for using Password Generator. \")\n",
+    "            print(\"==========================================\\n\")\n",
+    "            break \n",
+    "        else:\n",
+    "            print(\"\\n  Invalid option. Please select 1 or 2.\")\n",
+    "password_generator()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 60,
+   "id": "66e36349-bb3a-4ebb-9fad-d9d9d7fa558c",
+   "metadata": {
+    "scrolled": true
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "==========================================\n",
+      "       ROCK - PAPER - SCISSORS GAME      \n",
+      "==========================================\n",
+      "\n",
+      "==========================================\n",
+      "  1. Play Game                           \n",
+      "  2. View Score                          \n",
+      "  3. Exit                                \n",
+      "==========================================\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "  Please Select an Option (1-3) :  1\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "------------------------------------------\n",
+      "              NEW ROUND                   \n",
+      "------------------------------------------\n",
+      "  Available Choices:\n",
+      "  1. Rock\n",
+      "  2. Paper\n",
+      "  3. Scissors\n",
+      "------------------------------------------\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "  Enter Your Choice (1/2/3) :  1\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "------------------------------------------\n",
+      "  Your Choice     : Rock\n",
+      "  Computer Choice : Scissors\n",
+      "------------------------------------------\n",
+      "  Result          : You Win!\n",
+      "------------------------------------------\n",
+      "\n",
+      "==========================================\n",
+      "  1. Play Game                           \n",
+      "  2. View Score                          \n",
+      "  3. Exit                                \n",
+      "==========================================\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "  Please Select an Option (1-3) :  1\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "------------------------------------------\n",
+      "              NEW ROUND                   \n",
+      "------------------------------------------\n",
+      "  Available Choices:\n",
+      "  1. Rock\n",
+      "  2. Paper\n",
+      "  3. Scissors\n",
+      "------------------------------------------\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "  Enter Your Choice (1/2/3) :  3\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "------------------------------------------\n",
+      "  Your Choice     : Scissors\n",
+      "  Computer Choice : Scissors\n",
+      "------------------------------------------\n",
+      "  Result          : It is a Tie!\n",
+      "------------------------------------------\n",
+      "\n",
+      "==========================================\n",
+      "  1. Play Game                           \n",
+      "  2. View Score                          \n",
+      "  3. Exit                                \n",
+      "==========================================\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "  Please Select an Option (1-3) :  1\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "------------------------------------------\n",
+      "              NEW ROUND                   \n",
+      "------------------------------------------\n",
+      "  Available Choices:\n",
+      "  1. Rock\n",
+      "  2. Paper\n",
+      "  3. Scissors\n",
+      "------------------------------------------\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "  Enter Your Choice (1/2/3) :  2\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "------------------------------------------\n",
+      "  Your Choice     : Paper\n",
+      "  Computer Choice : Paper\n",
+      "------------------------------------------\n",
+      "  Result          : It is a Tie!\n",
+      "------------------------------------------\n",
+      "\n",
+      "==========================================\n",
+      "  1. Play Game                           \n",
+      "  2. View Score                          \n",
+      "  3. Exit                                \n",
+      "==========================================\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "  Please Select an Option (1-3) :  1\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "------------------------------------------\n",
+      "              NEW ROUND                   \n",
+      "------------------------------------------\n",
+      "  Available Choices:\n",
+      "  1. Rock\n",
+      "  2. Paper\n",
+      "  3. Scissors\n",
+      "------------------------------------------\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "  Enter Your Choice (1/2/3) :  3\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "------------------------------------------\n",
+      "  Your Choice     : Scissors\n",
+      "  Computer Choice : Rock\n",
+      "------------------------------------------\n",
+      "  Result          : Computer Wins!\n",
+      "------------------------------------------\n",
+      "\n",
+      "==========================================\n",
+      "  1. Play Game                           \n",
+      "  2. View Score                          \n",
+      "  3. Exit                                \n",
+      "==========================================\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "  Please Select an Option (1-3) :  1\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "------------------------------------------\n",
+      "              NEW ROUND                   \n",
+      "------------------------------------------\n",
+      "  Available Choices:\n",
+      "  1. Rock\n",
+      "  2. Paper\n",
+      "  3. Scissors\n",
+      "------------------------------------------\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "  Enter Your Choice (1/2/3) :  1\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "------------------------------------------\n",
+      "  Your Choice     : Rock\n",
+      "  Computer Choice : Paper\n",
+      "------------------------------------------\n",
+      "  Result          : Computer Wins!\n",
+      "------------------------------------------\n",
+      "\n",
+      "==========================================\n",
+      "  1. Play Game                           \n",
+      "  2. View Score                          \n",
+      "  3. Exit                                \n",
+      "==========================================\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "  Please Select an Option (1-3) :  2\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "------------------------------------------\n",
+      "              SCORE BOARD                 \n",
+      "------------------------------------------\n",
+      "  Your Score     : 1\n",
+      "  Computer Score : 2\n",
+      "  Ties           : 2\n",
+      "------------------------------------------\n",
+      "\n",
+      "==========================================\n",
+      "  1. Play Game                           \n",
+      "  2. View Score                          \n",
+      "  3. Exit                                \n",
+      "==========================================\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "  Please Select an Option (1-3) :  3\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "==========================================\n",
+      "  Thank you for playing the Game.        \n",
+      "==========================================\n"
+     ]
+    }
+   ],
+   "source": [
+    "import random\n",
+    "\n",
+    "user_score = 0\n",
+    "computer_score = 0\n",
+    "tie_score = 0\n",
+    "\n",
+    "print(\"==========================================\")\n",
+    "print(\"       ROCK - PAPER - SCISSORS GAME      \")\n",
+    "print(\"==========================================\")\n",
+    "\n",
+    "while True:\n",
+    "    print(\"\\n==========================================\")\n",
+    "    print(\"  1. Play Game                           \")\n",
+    "    print(\"  2. View Score                          \")\n",
+    "    print(\"  3. Exit                                \")\n",
+    "    print(\"==========================================\")\n",
+    "\n",
+    "    choice = input(\"  Please Select an Option (1-3) : \")\n",
+    "\n",
+    "    if choice == \"1\":\n",
+    "        print(\"\\n------------------------------------------\")\n",
+    "        print(\"              NEW ROUND                   \")\n",
+    "        print(\"------------------------------------------\")\n",
+    "        print(\"  Available Choices:\")\n",
+    "        print(\"  1. Rock\")\n",
+    "        print(\"  2. Paper\")\n",
+    "        print(\"  3. Scissors\")\n",
+    "        print(\"------------------------------------------\")\n",
+    "\n",
+    "        user_input = input(\"  Enter Your Choice (1/2/3) : \")\n",
+    "\n",
+    "        if user_input == \"1\":\n",
+    "            user_choice = \"Rock\"\n",
+    "        elif user_input == \"2\":\n",
+    "            user_choice = \"Paper\"\n",
+    "        elif user_input == \"3\":\n",
+    "            user_choice = \"Scissors\"\n",
+    "        else:\n",
+    "            print(\"\\n  Invalid choice. Please enter 1, 2, or 3.\")\n",
+    "            continue\n",
+    "\n",
+    "        computer_input = random.randint(1, 3)\n",
+    "\n",
+    "        if computer_input == 1:\n",
+    "            computer_choice = \"Rock\"\n",
+    "        elif computer_input == 2:\n",
+    "            computer_choice = \"Paper\"\n",
+    "        else:\n",
+    "            computer_choice = \"Scissors\"\n",
+    "\n",
+    "        print(\"\\n------------------------------------------\")\n",
+    "        print(f\"  Your Choice     : {user_choice}\")\n",
+    "        print(f\"  Computer Choice : {computer_choice}\")\n",
+    "        print(\"------------------------------------------\")\n",
+    "\n",
+    "        if user_choice == computer_choice:\n",
+    "            print(\"  Result          : It is a Tie!\")\n",
+    "            tie_score = tie_score + 1\n",
+    "        elif user_choice == \"Rock\" and computer_choice == \"Scissors\":\n",
+    "            print(\"  Result          : You Win!\")\n",
+    "            user_score = user_score + 1\n",
+    "        elif user_choice == \"Paper\" and computer_choice == \"Rock\":\n",
+    "            print(\"  Result          : You Win!\")\n",
+    "            user_score = user_score + 1\n",
+    "        elif user_choice == \"Scissors\" and computer_choice == \"Paper\":\n",
+    "            print(\"  Result          : You Win!\")\n",
+    "            user_score = user_score + 1\n",
+    "        else:\n",
+    "            print(\"  Result          : Computer Wins!\")\n",
+    "            computer_score = computer_score + 1\n",
+    "\n",
+    "        print(\"------------------------------------------\")\n",
+    "\n",
+    "    elif choice == \"2\":\n",
+    "        print(\"\\n------------------------------------------\")\n",
+    "        print(\"              SCORE BOARD                 \")\n",
+    "        print(\"------------------------------------------\")\n",
+    "        print(f\"  Your Score     : {user_score}\")\n",
+    "        print(f\"  Computer Score : {computer_score}\")\n",
+    "        print(f\"  Ties           : {tie_score}\")\n",
+    "        print(\"------------------------------------------\")\n",
+    "\n",
+    "    elif choice == \"3\":\n",
+    "        print(\"\\n==========================================\")\n",
+    "        print(\"  Thank you for playing the Game.        \")\n",
+    "        print(\"==========================================\")\n",
+    "        break\n",
+    "\n",
+    "    else:\n",
+    "        print(\"\\n  Invalid option. Please select 1, 2, or 3.\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "280a7a8f-bc88-40b4-b8fd-43f5c40aed74",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "==========================================\n",
+      "          CONTACT BOOK        \n",
+      "==========================================\n",
+      "\n",
+      "==========================================\n",
+      "  1. Add New Contact                     \n",
+      "  2. View All Contacts                   \n",
+      "  3. Search Contact                      \n",
+      "  4. Update Contact                      \n",
+      "  5. Delete Contact                      \n",
+      "  6. Exit Application                    \n",
+      "==========================================\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      " Enter your choice:  1\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "------------------------------------------\n",
+      "            ADD NEW CONTACT               \n",
+      "------------------------------------------\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "  Enter Name         :  Munisha\n",
+      "  Enter Phone Number :  7306293545\n",
+      "  Enter Email        :  munishamaryam05@gmail.com\n",
+      "  Enter Address      :  Kasaragod\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "  Contact 'Munisha' has been added successfully.\n",
+      "------------------------------------------\n",
+      "\n",
+      "==========================================\n",
+      "  1. Add New Contact                     \n",
+      "  2. View All Contacts                   \n",
+      "  3. Search Contact                      \n",
+      "  4. Update Contact                      \n",
+      "  5. Delete Contact                      \n",
+      "  6. Exit Application                    \n",
+      "==========================================\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      " Enter your choice:  1\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "------------------------------------------\n",
+      "            ADD NEW CONTACT               \n",
+      "------------------------------------------\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "  Enter Name         :  sahal\n",
+      "  Enter Phone Number :  9633987700\n",
+      "  Enter Email        :  sahal012@gmail.com\n",
+      "  Enter Address      :  manglore\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "  Contact 'sahal' has been added successfully.\n",
+      "------------------------------------------\n",
+      "\n",
+      "==========================================\n",
+      "  1. Add New Contact                     \n",
+      "  2. View All Contacts                   \n",
+      "  3. Search Contact                      \n",
+      "  4. Update Contact                      \n",
+      "  5. Delete Contact                      \n",
+      "  6. Exit Application                    \n",
+      "==========================================\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      " Enter your choice:  1\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "------------------------------------------\n",
+      "            ADD NEW CONTACT               \n",
+      "------------------------------------------\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "  Enter Name         :  muhaz\n",
+      "  Enter Phone Number :  7994768313\n",
+      "  Enter Email        :  mumuhaz324@gmail.com\n",
+      "  Enter Address      :  kannur\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "  Contact 'muhaz' has been added successfully.\n",
+      "------------------------------------------\n",
+      "\n",
+      "==========================================\n",
+      "  1. Add New Contact                     \n",
+      "  2. View All Contacts                   \n",
+      "  3. Search Contact                      \n",
+      "  4. Update Contact                      \n",
+      "  5. Delete Contact                      \n",
+      "  6. Exit Application                    \n",
+      "==========================================\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      " Enter your choice:  2\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "------------------------------------------\n",
+      "            ALL CONTACTS                  \n",
+      "------------------------------------------\n",
+      "  1. Name  : Munisha\n",
+      "     Phone : 7306293545\n",
+      "  ........................................\n",
+      "  2. Name  : sahal\n",
+      "     Phone : 9633987700\n",
+      "  ........................................\n",
+      "  3. Name  : muhaz\n",
+      "     Phone : 7994768313\n",
+      "  ........................................\n",
+      "------------------------------------------\n",
+      "\n",
+      "==========================================\n",
+      "  1. Add New Contact                     \n",
+      "  2. View All Contacts                   \n",
+      "  3. Search Contact                      \n",
+      "  4. Update Contact                      \n",
+      "  5. Delete Contact                      \n",
+      "  6. Exit Application                    \n",
+      "==========================================\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      " Enter your choice:  3\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "------------------------------------------\n",
+      "            SEARCH CONTACT                \n",
+      "------------------------------------------\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "  Enter Name or Phone to Search :  sahal\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "  Contact Found:\n",
+      "  Name    : sahal\n",
+      "  Phone   : 9633987700\n",
+      "  Email   : sahal012@gmail.com\n",
+      "  Address : manglore\n",
+      "  ........................................\n",
+      "------------------------------------------\n",
+      "\n",
+      "==========================================\n",
+      "  1. Add New Contact                     \n",
+      "  2. View All Contacts                   \n",
+      "  3. Search Contact                      \n",
+      "  4. Update Contact                      \n",
+      "  5. Delete Contact                      \n",
+      "  6. Exit Application                    \n",
+      "==========================================\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      " Enter your choice:  4\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "------------------------------------------\n",
+      "            UPDATE CONTACT                \n",
+      "------------------------------------------\n",
+      "  1. Munisha - 7306293545\n",
+      "  2. sahal - 9633987700\n",
+      "  3. muhaz - 7994768313\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "  Enter Contact Number to Update :  2\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "  Enter New Details:\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "  Enter New Name         :  sahal\n",
+      "  Enter New Phone Number :  9633987700\n",
+      "  Enter New Email        :  sahal012@gmail.com\n",
+      "  Enter New Address      :  baliyoor\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "  Contact has been updated successfully.\n",
+      "------------------------------------------\n",
+      "\n",
+      "==========================================\n",
+      "  1. Add New Contact                     \n",
+      "  2. View All Contacts                   \n",
+      "  3. Search Contact                      \n",
+      "  4. Update Contact                      \n",
+      "  5. Delete Contact                      \n",
+      "  6. Exit Application                    \n",
+      "==========================================\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      " Enter your choice:  2\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "------------------------------------------\n",
+      "            ALL CONTACTS                  \n",
+      "------------------------------------------\n",
+      "  1. Name  : Munisha\n",
+      "     Phone : 7306293545\n",
+      "  ........................................\n",
+      "  2. Name  : sahal\n",
+      "     Phone : 9633987700\n",
+      "  ........................................\n",
+      "  3. Name  : muhaz\n",
+      "     Phone : 7994768313\n",
+      "  ........................................\n",
+      "------------------------------------------\n",
+      "\n",
+      "==========================================\n",
+      "  1. Add New Contact                     \n",
+      "  2. View All Contacts                   \n",
+      "  3. Search Contact                      \n",
+      "  4. Update Contact                      \n",
+      "  5. Delete Contact                      \n",
+      "  6. Exit Application                    \n",
+      "==========================================\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      " Enter your choice:  5\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "------------------------------------------\n",
+      "            DELETE CONTACT                \n",
+      "------------------------------------------\n",
+      "  1. Munisha - 7306293545\n",
+      "  2. sahal - 9633987700\n",
+      "  3. muhaz - 7994768313\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "  Enter Contact Number to Delete :  3\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "  Contact 'muhaz' has been deleted successfully.\n",
+      "------------------------------------------\n",
+      "\n",
+      "==========================================\n",
+      "  1. Add New Contact                     \n",
+      "  2. View All Contacts                   \n",
+      "  3. Search Contact                      \n",
+      "  4. Update Contact                      \n",
+      "  5. Delete Contact                      \n",
+      "  6. Exit Application                    \n",
+      "==========================================\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      " Enter your choice:  2\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "------------------------------------------\n",
+      "            ALL CONTACTS                  \n",
+      "------------------------------------------\n",
+      "  1. Name  : Munisha\n",
+      "     Phone : 7306293545\n",
+      "  ........................................\n",
+      "  2. Name  : sahal\n",
+      "     Phone : 9633987700\n",
+      "  ........................................\n",
+      "------------------------------------------\n",
+      "\n",
+      "==========================================\n",
+      "  1. Add New Contact                     \n",
+      "  2. View All Contacts                   \n",
+      "  3. Search Contact                      \n",
+      "  4. Update Contact                      \n",
+      "  5. Delete Contact                      \n",
+      "  6. Exit Application                    \n",
+      "==========================================\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      " Enter your choice:  1\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "------------------------------------------\n",
+      "            ADD NEW CONTACT               \n",
+      "------------------------------------------\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "  Enter Name         :  naseema\n",
+      "  Enter Phone Number :  9188022999\n",
+      "  Enter Email        :  dohasect@gmail.com\n",
+      "  Enter Address      :  uppala\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "  Contact 'naseema' has been added successfully.\n",
+      "------------------------------------------\n",
+      "\n",
+      "==========================================\n",
+      "  1. Add New Contact                     \n",
+      "  2. View All Contacts                   \n",
+      "  3. Search Contact                      \n",
+      "  4. Update Contact                      \n",
+      "  5. Delete Contact                      \n",
+      "  6. Exit Application                    \n",
+      "==========================================\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      " Enter your choice:  2\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "------------------------------------------\n",
+      "            ALL CONTACTS                  \n",
+      "------------------------------------------\n",
+      "  1. Name  : Munisha\n",
+      "     Phone : 7306293545\n",
+      "  ........................................\n",
+      "  2. Name  : sahal\n",
+      "     Phone : 9633987700\n",
+      "  ........................................\n",
+      "  3. Name  : naseema\n",
+      "     Phone : 9188022999\n",
+      "  ........................................\n",
+      "------------------------------------------\n",
+      "\n",
+      "==========================================\n",
+      "  1. Add New Contact                     \n",
+      "  2. View All Contacts                   \n",
+      "  3. Search Contact                      \n",
+      "  4. Update Contact                      \n",
+      "  5. Delete Contact                      \n",
+      "  6. Exit Application                    \n",
+      "==========================================\n"
+     ]
+    }
+   ],
+   "source": [
+    "#### contacts = []\n",
+    "\n",
+    "print(\"==========================================\")\n",
+    "print(\"          CONTACT BOOK        \")\n",
+    "print(\"==========================================\")\n",
+    "\n",
+    "while True:\n",
+    "    print(\"\\n==========================================\")\n",
+    "    print(\"  1. Add New Contact                     \")\n",
+    "    print(\"  2. View All Contacts                   \")\n",
+    "    print(\"  3. Search Contact                      \")\n",
+    "    print(\"  4. Update Contact                      \")\n",
+    "    print(\"  5. Delete Contact                      \")\n",
+    "    print(\"  6. Exit Application                    \")\n",
+    "    print(\"==========================================\")\n",
+    "\n",
+    "    choice = input(\" Enter your choice: \")\n",
+    "\n",
+    "    if choice == \"1\":\n",
+    "        print(\"\\n------------------------------------------\")\n",
+    "        print(\"            ADD NEW CONTACT               \")\n",
+    "        print(\"------------------------------------------\")\n",
+    "        name    = input(\"  Enter Name         : \")\n",
+    "        phone   = input(\"  Enter Phone Number : \")\n",
+    "        email   = input(\"  Enter Email        : \")\n",
+    "        address = input(\"  Enter Address      : \")\n",
+    "\n",
+    "        contacts.append({\n",
+    "            \"name\"    : name,\n",
+    "            \"phone\"   : phone,\n",
+    "            \"email\"   : email,\n",
+    "            \"address\" : address\n",
+    "        })\n",
+    "\n",
+    "        print(f\"\\n  Contact '{name}' has been added successfully.\")\n",
+    "        print(\"------------------------------------------\")\n",
+    "\n",
+    "    elif choice == \"2\":\n",
+    "        print(\"\\n------------------------------------------\")\n",
+    "        print(\"            ALL CONTACTS                  \")\n",
+    "        print(\"------------------------------------------\")\n",
+    "        if not contacts:\n",
+    "            print(\"  No contacts available.\")\n",
+    "        else:\n",
+    "            for i, contact in enumerate(contacts, 1):\n",
+    "                print(f\"  {i}. Name  : {contact['name']}\")\n",
+    "                print(f\"     Phone : {contact['phone']}\")\n",
+    "                print(\"  ........................................\")\n",
+    "        print(\"------------------------------------------\")\n",
+    "\n",
+    "    elif choice == \"3\":\n",
+    "        print(\"\\n------------------------------------------\")\n",
+    "        print(\"            SEARCH CONTACT                \")\n",
+    "        print(\"------------------------------------------\")\n",
+    "        keyword = input(\"  Enter Name or Phone to Search : \").lower()\n",
+    "        found = False\n",
+    "        for contact in contacts:\n",
+    "            if keyword in contact[\"name\"].lower() or keyword in contact[\"phone\"]:\n",
+    "                print(\"\\n  Contact Found:\")\n",
+    "                print(f\"  Name    : {contact['name']}\")\n",
+    "                print(f\"  Phone   : {contact['phone']}\")\n",
+    "                print(f\"  Email   : {contact['email']}\")\n",
+    "                print(f\"  Address : {contact['address']}\")\n",
+    "                print(\"  ........................................\")\n",
+    "                found = True\n",
+    "        if not found:\n",
+    "            print(\"\\n  No contact found with that name or phone number.\")\n",
+    "        print(\"------------------------------------------\")\n",
+    "\n",
+    "    elif choice == \"4\":\n",
+    "        print(\"\\n------------------------------------------\")\n",
+    "        print(\"            UPDATE CONTACT                \")\n",
+    "        print(\"------------------------------------------\")\n",
+    "        if not contacts:\n",
+    "            print(\"  No contacts available to update.\")\n",
+    "        else:\n",
+    "            for i, contact in enumerate(contacts, 1):\n",
+    "                print(f\"  {i}. {contact['name']} - {contact['phone']}\")\n",
+    "            try:\n",
+    "                num = int(input(\"  Enter Contact Number to Update : \")) - 1\n",
+    "                if 0 <= num < len(contacts):\n",
+    "                    print(\"\\n  Enter New Details:\")\n",
+    "                    contacts[num][\"name\"]    = input(\"  Enter New Name         : \")\n",
+    "                    contacts[num][\"phone\"]   = input(\"  Enter New Phone Number : \")\n",
+    "                    contacts[num][\"email\"]   = input(\"  Enter New Email        : \")\n",
+    "                    contacts[num][\"address\"] = input(\"  Enter New Address      : \")\n",
+    "                    print(\"\\n  Contact has been updated successfully.\")\n",
+    "                else:\n",
+    "                    print(\"\\n  Invalid number. Please try again.\")\n",
+    "            except ValueError:\n",
+    "                print(\"\\n  Invalid input. Please enter a valid number.\")\n",
+    "        print(\"------------------------------------------\")\n",
+    "\n",
+    "    elif choice == \"5\":\n",
+    "        print(\"\\n------------------------------------------\")\n",
+    "        print(\"            DELETE CONTACT                \")\n",
+    "        print(\"------------------------------------------\")\n",
+    "        if not contacts:\n",
+    "            print(\"  No contacts available to delete.\")\n",
+    "        else:\n",
+    "            for i, contact in enumerate(contacts, 1):\n",
+    "                print(f\"  {i}. {contact['name']} - {contact['phone']}\")\n",
+    "            try:\n",
+    "                num = int(input(\"  Enter Contact Number to Delete : \")) - 1\n",
+    "                if 0 <= num < len(contacts):\n",
+    "                    removed = contacts.pop(num)\n",
+    "                    print(f\"\\n  Contact '{removed['name']}' has been deleted successfully.\")\n",
+    "                else:\n",
+    "                    print(\"\\n  Invalid number. Please try again.\")\n",
+    "            except ValueError:\n",
+    "                print(\"\\n  Invalid input. Please enter a valid number.\")\n",
+    "        print(\"------------------------------------------\")\n",
+    "\n",
+    "    elif choice == \"6\":\n",
+    "        print(\"\\n==========================================\")\n",
+    "        print(\"  Thank you for using Contact Book App.  \")\n",
+    "        print(\"  Goodbye!                               \")\n",
+    "        print(\"==========================================\")\n",
+    "        break\n",
+    "\n",
+    "    else:\n",
+    "        print(\"\\n  Invalid option. Please select between 1 and 6.\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "c2e0780d-8fe0-48d3-beb8-eb02f585013a",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def todo_list():\n",
+    "    tasks = []\n",
+    "    while True:\n",
+    "        print(\"====================\")\n",
+    "        print(\"    TO-DO LIST      \")\n",
+    "        print(\"====================\")\n",
+    "        print(\"1. View Tasks\")\n",
+    "        print(\"2. Add Task\")\n",
+    "        print(\"3. Update Task\")\n",
+    "        print(\"4. Mark Task as Done\")\n",
+    "        print(\"5. Delete Task\")\n",
+    "        print(\"6. Exit\")\n",
+    "        \n",
+    "        choice = input(\"Enter your choice: \")\n",
+    "        \n",
+    "        if choice == \"1\":\n",
+    "            print(\"-----------------------\")\n",
+    "            print(\"    YOUR TASK LIST     \")\n",
+    "            print(\"-----------------------\")\n",
+    "            if not tasks:\n",
+    "                print(\"No tasks found!\")\n",
+    "            else:\n",
+    "                print(\"\\nYour Tasks:\\n\")\n",
+    "                for i, task in enumerate(tasks, 1):\n",
+    "                    status = \"Done\" if task[\"done\"] else \"Pending\"\n",
+    "                    print(f\"{i}. {task['name']:<25} [{status}]\\n\")\n",
+    "        \n",
+    "        elif choice == \"2\":\n",
+    "            print(\"-----------------------\")\n",
+    "            print(\"     ADD NEW TASK      \")\n",
+    "            print(\"-----------------------\")\n",
+    "            task_name = input(\"Enter task: \")\n",
+    "            tasks.append({\"name\": task_name, \"done\": False})\n",
+    "            print(f\"Task '{task_name}' added Successfully!\")\n",
+    "        \n",
+    "        elif choice == \"3\":\n",
+    "            print(\"-----------------------------\")\n",
+    "            print(\"    UPDATE EXISTING TASK     \")\n",
+    "            print(\"-----------------------------\")\n",
+    "            if not tasks:\n",
+    "                print(\"No tasks to update!\")\n",
+    "            else:\n",
+    "                for i, task in enumerate(tasks, 1):\n",
+    "                    print(f\"{i}. {task['name']}\")\n",
+    "                num = int(input(\"Enter task number to update: \")) - 1\n",
+    "                new_name = input(\"Enter new task name: \")\n",
+    "                tasks[num][\"name\"] = new_name\n",
+    "                print(\"Task updated Successfully!\")\n",
+    "        \n",
+    "        elif choice == \"4\":\n",
+    "            print(\"------------------------------\")\n",
+    "            print(\"   MARK TASK AS COMPLETED   \")\n",
+    "            print(\"------------------------------\")\n",
+    "            if not tasks:\n",
+    "                print(\"No tasks available!\")\n",
+    "            else:\n",
+    "                for i, task in enumerate(tasks, 1):\n",
+    "                    print(f\"{i}. {task['name']}\")\n",
+    "                num = int(input(\"Enter task number to mark as done: \")) - 1\n",
+    "                tasks[num][\"done\"] = True\n",
+    "                print(\"Task marked as done Successfully!\")\n",
+    "        \n",
+    "        elif choice == \"5\":\n",
+    "            print(\"--------------------\")\n",
+    "            print(\"    DELETE TASK     \")\n",
+    "            print(\"--------------------\")\n",
+    "            if not tasks:\n",
+    "                print(\"No tasks to delete!\")\n",
+    "            else:\n",
+    "                for i, task in enumerate(tasks, 1):\n",
+    "                    print(f\"{i}. {task['name']}\")\n",
+    "                num = int(input(\"Enter task number to delete: \")) - 1\n",
+    "                removed = tasks.pop(num)\n",
+    "                print(f\"Task '{removed['name']}' deleted Successfully!\")\n",
+    "        \n",
+    "        elif choice == \"6\":\n",
+    "            print(\"Thankyou for using TO-DO list!\")\n",
+    "            break\n",
+    "        \n",
+    "        else:\n",
+    "            print(\"Invalid choice! Try again.\")\n",
+    "\n",
+    "todo_list()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "ffdd19c0-358c-4309-a5a6-685cdb7c3554",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.13.9"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
